@@ -1,11 +1,9 @@
-import { useState } from "react";
-import Input from "./components/Inputs/Input";
+import Card from "./components/card";
 
 function App() {
-  const [input, setInput] = useState("");
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <Input placeholder="Message Micheal" type="text" onChange={e=> setInput(e.target.value)} value={input} />
+      <Card name="Hamza" ping={true} time="6:59 am" message="This is hello text :D" />
     </div>
   );
 }

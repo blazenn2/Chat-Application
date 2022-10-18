@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       colors: {
         "primary": "rgba(71, 41, 125, 1)",
+        "primary-light": "rgba(71, 41, 125, 0.8)",
         "secondary": "rgba(132, 114, 252, 1)",
+        "secondary-light": "rgba(132, 114, 252, 0.8)",
         "text-box": "rgba(240, 240, 251, 1)",
         "text-primary": "rgba(144, 149, 164, 1)",
         "text-secondary": "rgba(255,255,255,1)",
