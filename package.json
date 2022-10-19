@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react-icons": "^4.6.0"
-  }
+  "license": "ISC"
 }
