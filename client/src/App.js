@@ -1,9 +1,9 @@
-import Card from "./components/card";
+import SideBar from "./container/sider-bar";
 
 function App() {
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
-      <Card name="Hamza" ping={true} time="6:59 am" message="This is hello text :D" />
+    <div className="w-screen h-screen flex items-center justify-start">
+      <SideBar />
     </div>
   );
 }
