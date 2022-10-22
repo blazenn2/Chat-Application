@@ -26,8 +26,8 @@ const Header = (props) => {
                     <FiMoreHorizontal className="scale-150 text-text-normal" />
                 </button>
                 <div className="bg-white w-32 rounded-lg absolute top-5 right-0 transition-all ease-in-out flex flex-col justify-around py-2 shadow-2xl z-20" style={{ height: "0rem", opacity: 0 }} ref={modal}>
-                    <div className="text-center h-1/2 flex items-center justify-center text-text-primary hover:bg-text-box">Settings</div>
-                    <div className="text-center h-1/2 flex items-center justify-center text-text-primary hover:bg-text-box">Logout</div>
+                    <div className="text-center h-1/2 flex items-center justify-center text-text-primary hover:bg-text-box cursor-pointer">Settings</div>
+                    <div className="text-center h-1/2 flex items-center justify-center text-text-primary hover:bg-text-box cursor-pointer">Logout</div>
                 </div>
             </div>
         </div>

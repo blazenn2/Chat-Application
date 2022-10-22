@@ -3,7 +3,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 
 const Card = (props) => {
     return (
-        <div className={`flex ${props.isActive ? "bg-text-box" : null} p-4 rounded-lg w-1/2`}>
+        <div className={`flex ${props.isActive ? "bg-text-box" : null} p-4 rounded-lg w-full`}>
             <div className="bg-text-primary p-4 rounded-full relative mr-3">
                 <FaUserAlt className="text-text-box scale-110" />
                 {props.ping && (<>
