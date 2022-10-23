@@ -13,11 +13,11 @@ const Card = (props) => {
             <div className="w-full flex justify-between">
                 <div className="w-1/2 flex flex-col justify-between items-start">
                     <p className="text-text-normal">{props.name}</p>
-                    <p className={`truncate text-sm w-32 ${props.unseen ? "font-bold text-text-normal" : "text-text-primary"}`}>{props.message}</p>
+                    <p className={`truncate lg:w-28 w-20 text-xs ${props.unseen ? "font-bold text-text-normal" : "text-text-primary"}`}>{props.message}</p>
                 </div>
                 <div className="flex flex-col justify-between items-end">
                     <button><FiMoreHorizontal className="scale-150 text-text-normal" /></button>
-                    <p className="uppercase text-text-primary text-sm">{props.time}</p>
+                    <p className="uppercase text-text-primary text-xs">{props.time}</p>
                 </div>
             </div>
         </div>
