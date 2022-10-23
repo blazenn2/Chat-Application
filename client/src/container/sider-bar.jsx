@@ -7,13 +7,37 @@ import { useRef, useState } from 'react'
 
 const SideBar = () => {
     const [filter, setFilter] = useState(0);
+    const [friendList, setFriendList] = useState([
+        { name: "Hamza", message: "Hello world!", time: "7:39 am", unseen: 3, isActive: true, status: "online" },
+        { name: "Alex", message: "Hello Javascript! Long time no see buddy", time: "10:11 am", unseen: 5, isActive: false, status: "away" },
+        { name: "Jason", message: "Sometimes, we have to do what is right!", time: "12:01 am", isActive: false, status: "offline" },
+        { name: "Usman", message: "I have a very big butt :D", time: "3:32 pm", isActive: false, status: "online" },
+        { name: "John", message: "Something is coming ... you can feel it, can you?", time: "1:24 pm", unseen: 1, isActive: false, status: "away" },
+    ]);
     const lineBorder = useRef();
     const changeFilterHandler = (filter) => {
         setFilter(filter);
-        if (filter === 0) lineBorder.current.style.left = "2rem"; 
-        if (filter === 1) lineBorder.current.style.left = "8.5rem"; 
-        if (filter === 2) lineBorder.current.style.left = "15.25rem"; 
+        if (filter === 0) {
+            lineBorder.current.style.left = "2rem";
+        }
+        if (filter === 1) {
+            lineBorder.current.style.left = "8.5rem";
+            const newArr = [];
+            newArr.unshift(...friendList.filter(value => !value.unseen));
+            newArr.unshift(...friendList.filter(value => value.unseen));
+            setFriendList(newArr);
+        }
+        if (filter === 2) {
+            lineBorder.current.style.left = "15.25rem";
+        }
+
+
     };
+    const changeActiveHandler = (index) => setFriendList(friendList.map((value, i) => {
+        if (index === i) value.isActive = true;
+        else value.isActive = false;
+        return value;
+    }));
 
     return (
         <div className="w-1/4 h-full bg-background">
@@ -30,39 +54,14 @@ const SideBar = () => {
                     <div className={`cursor-pointer ${filter === 0 ? "text-secondary" : "text-text-primary hover:text-secondary"}`} onClick={() => changeFilterHandler(0)}>Recent</div>
                     <div className={`${filter === 1 ? "text-secondary" : "text-text-primary hover:text-secondary"} cursor-pointer`} onClick={() => changeFilterHandler(1)}>Unread</div>
                     <div className={`${filter === 2 ? "text-secondary" : "text-text-primary hover:text-secondary"} cursor-pointer`} onClick={() => changeFilterHandler(2)}>Groups</div>
-                    <div className="bg-secondary w-16 h-1 absolute bottom-1 rounded-lg transition-all ease-in-out" style={{ left: "15.25rem" }} ref={lineBorder}></div>
+                    <div className="bg-secondary w-16 h-1 absolute bottom-1 rounded-lg transition-all ease-in-out" style={{ left: "2rem" }} ref={lineBorder}></div>
                 </div>
                 <hr className='bg-text-box w-11/12 absolute bottom-1' />
             </div>
             <div className="h-96">
-                <div className="flex items-center justify-center h-full">
-                    <div className="w-11/12 overflow-y-auto h-full">
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
-                        <Card name="Hamza" message="Hello world" time="7:39 am" ping={true} />
+                <div className="flex items-center justify-center h-96">
+                    <div className="w-11/12 overflow-y-auto h-96">
+                        {friendList.map((value, i) => <Card name={value.name} message={value.message} time={value.time} status={value.status} unseen={(value.unseen ? value.unseen : false)} isActive={value.isActive} index={i} changeActive={changeActiveHandler} />)}
                     </div>
                 </div>
             </div>
