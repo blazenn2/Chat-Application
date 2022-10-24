@@ -1,5 +1,6 @@
 import { FaUserAlt } from "react-icons/fa";
 import { FiMoreHorizontal } from "react-icons/fi";
+import PingCircle from "../ping-circle";
 
 const Card = (props) => {
     return (
@@ -7,8 +8,7 @@ const Card = (props) => {
             <div className="bg-text-primary p-4 rounded-full relative mr-3">
                 <FaUserAlt className="text-text-box scale-110" />
                 {props.unseen && <div className="bg-secondary w-5 h-5 rounded-full absolute top-0 left-0 text-xs text-white flex items-center justify-center"><p>{props.unseen}</p></div>}
-                {props.status?.toLowerCase() !== "offline" && <div className={`${props.status?.toLowerCase() === "online" ? "bg-green-500" : "bg-yellow-500"} w-3 h-3 rounded-full absolute right-0 animate-ping`}></div>}
-                <div className={`${props.status?.toLowerCase() === "online" ? "bg-green-500" : props.status?.toLowerCase() === "away" ? "bg-yellow-500" : "bg-offline"} w-3 h-3 rounded-full absolute right-0`}></div>
+                <PingCircle status={props.status} className="right-0" />
             </div>
             <div className="w-full flex justify-between">
                 <div className="w-1/2 flex flex-col justify-between items-start">
