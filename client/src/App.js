@@ -9,7 +9,7 @@ function App() {
       { name: "Alex", message: "Hello Javascript! Long time no see buddy", time: "10:11 am", unseen: 5, isActive: false, status: "away" },
       { name: "Jason", message: "Sometimes, we have to do what is right!", time: "12:01 am", isActive: false, status: "offline" },
       { name: "Usman", message: "I have a very big butt :D", time: "3:32 pm", isActive: false, status: "online" },
-      { name: "John", message: "Something is coming ... you can feel it, can you?", time: "1:24 pm", unseen: 1, isActive: false, status: "away" },
+      { name: "John Seed", message: "Something is coming ... you can feel it, can you?", time: "1:24 pm", unseen: 1, isActive: false, status: "away" },
   ]);
   return (
     <div className="w-screen h-screen flex items-center justify-start">
