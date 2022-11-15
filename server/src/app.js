@@ -11,4 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+app.get('/', async (req, res) => {
+  res.json({
+    status: 'ok',
+  });
+});
+
 module.exports = app;
